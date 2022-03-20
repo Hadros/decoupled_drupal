@@ -12,8 +12,9 @@ const GetNodesListHtml = ({ data }) => {
       <div>
         {data.data.map((node, index) => (
           <div key={index}>
+            {console.log(node)}
             <div>
-              {node.attributes.title}=
+              <span>{node.attributes.title}</span>     <Link to={`/node/${node.id}/edit`}>Edit</Link>
             </div>
           </div>
         ))}
@@ -25,9 +26,6 @@ const GetNodesListHtml = ({ data }) => {
 const getAllReactFinalFormNodes = async () => getNodes('react_final_form');
 
 const NodesList = () => {
-  //console.log(getAllReactFinalFormNodes())
-  getAllReactFinalFormNodes().then(response => console.log(response));
-
   const [data, updateData] = useState([]);
   useEffect(() => {
     const getData = async () => {
@@ -37,8 +35,6 @@ const NodesList = () => {
     getData();
   }, []);
 
-  console.log(data);
-
   return (
     <>
       <main>
@@ -47,6 +43,7 @@ const NodesList = () => {
           {data.length !== 0 && <GetNodesListHtml data={data}/>}
         </div>
       </main>
+      <br/>
       <nav>
         <Link to="/">Home</Link>
       </nav>

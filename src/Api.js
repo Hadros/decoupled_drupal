@@ -22,12 +22,25 @@ const request = async ( type, url, requestData ) => {
       { headers: headers }
     )
   }
+  else if (type === 'patch') {
+    console.log(requestData);
+    return axios.patch(
+      baseUrl + url,
+      requestData,
+      { headers: headers }
+    )
+  }
 }
 
 const API = {
   async get(url) {
-    console.log(url);
     return request('get', url, {});
+  },
+  async post(url, requestData) {
+    return request('post', url, requestData);
+  },
+  async patch(url, requestData) {
+    return request('patch', url, requestData);
   }
 }
 
