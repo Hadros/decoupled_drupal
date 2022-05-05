@@ -11,6 +11,21 @@ const Home = () => {
         <Link to="/about">About</Link>
         <br/>
         <Link to="/nodes">Nodes List</Link>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <Link to="/node/article/create">Create Article</Link>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <Link to="/node/final-form/create">Create Final Form Subrequests</Link>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <Link to="/nodes-subrequests">Node Subrequests</Link>
       </nav>
     </>
   );

@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom";
 import API from './Api';
 import {useEffect, useState} from "react";
+import axios from "axios";
 
 const getNodes = async (type) => {
   return API.get( '/node/' + type)
@@ -12,9 +13,8 @@ const GetNodesListHtml = ({ data }) => {
       <div>
         {data.data.map((node, index) => (
           <div key={index}>
-            {console.log(node)}
             <div>
-              <span>{node.attributes.title}</span>     <Link to={`/node/${node.id}/edit`}>Edit</Link>
+              <span>{node.attributes.title}</span>     <Link to={`/node/${node.id}/edit`}>Edit</Link>   <Link to={`/node/${node.id}/edit-subrequests`}>Edit Subrequests</Link>
             </div>
           </div>
         ))}
@@ -39,6 +39,12 @@ const NodesList = () => {
     <>
       <main>
         <h2>Nodes List</h2>
+        <br/>
+        <Link to="/node/final-form/create">Create Node</Link>
+        <br/>
+        <br/>
+        <br/>
+
         <div>
           {data.length !== 0 && <GetNodesListHtml data={data}/>}
         </div>

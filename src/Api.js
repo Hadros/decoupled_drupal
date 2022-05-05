@@ -23,7 +23,6 @@ const request = async ( type, url, requestData ) => {
     )
   }
   else if (type === 'patch') {
-    console.log(requestData);
     return axios.patch(
       baseUrl + url,
       requestData,

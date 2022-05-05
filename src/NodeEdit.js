@@ -18,6 +18,32 @@ const onSubmit = async values => {
 const editNode = async (values) => {
   let requestData = {
     data: {
+      id: '6c38ed47-fdef-4d9e-a760-978c66c8af19',
+      type: 'paragraph--award',
+      attributes: {
+        field_name: 'kek'
+      },
+    }
+    /*"relationships": {
+      "field_award": {
+        "data": {
+          "type": "paragraph--award",
+          "id": '58d16c9c-20f8-4036-9960-7802c0a5ba23',
+          'meta': {
+            'target_revision_id': 1,
+          }
+        }
+      }
+    },*/
+  };
+
+  return API.patch(
+    `/paragraph/award/6c38ed47-fdef-4d9e-a760-978c66c8af19`,
+    requestData
+  )
+
+  /*let requestData = {
+    data: {
       type: `node--${values.type}`,
       id: values.id,
       attributes: {
@@ -34,14 +60,14 @@ const editNode = async (values) => {
             }
           }
         }
-      },*/
+      },
     }
   };
 
   return API.patch(
     `/node/${values.type}/${values.id}`,
     requestData
-  )
+  )*/
 }
 
 const NodeEdit = () => {
